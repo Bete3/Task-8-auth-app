@@ -8,19 +8,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Image from "next/image"
-import { useRouter } from "next/navigation" // Import useRouter
+import { useRouter } from "next/navigation" 
 
 export default function SignupPage() {
-  const [state, setState] = useState({ message: "", status: "", redirectUrl: "" }) // Added redirectUrl to state
+  const [state, setState] = useState({ message: "", status: "", redirectUrl: "" }) 
   const [isPending, startTransition] = useTransition()
-  const router = useRouter() // Initialize useRouter
+  const router = useRouter() 
 
   useEffect(() => {
     if (state.message) {
       console.log("Signup Action State:", state)
     }
     if (state.redirectUrl && state.status === "success") {
-      router.push(state.redirectUrl) // Perform client-side redirect
+      router.push(state.redirectUrl) 
     }
   }, [state, router])
 
