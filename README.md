@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NextAuth Authentication Project
 
+This project provides a complete authentication system using **Next.js (App Router)** and **NextAuth.js**, integrated with a custom backend API.
+
+## Features
+
+*   User Signup & Login
+*   Email Verification (OTP-based)
+*   Protected Dashboard Route
+*   Modern UI with Tailwind CSS & shadcn/ui
+
+## Screenshots
+
+<img width="657" height="414" alt="image" src="https://github.com/user-attachments/assets/06008ffe-eb28-4a4a-842a-4a658432c1f3" />
+
+
+
+Login Page:
+
+
+<img width="752" height="463" alt="image" src="https://github.com/user-attachments/assets/11e40d15-2300-458f-bcf1-1458ea9a557c" />
+
+
+
+Signup Page:
+
+
+<img width="751" height="463" alt="image" src="https://github.com/user-attachments/assets/6c16f107-fd35-4d42-8e15-893958cba0d1" />
+
+
+
+Verify Email Page:
+
+
+<img width="753" height="439" alt="image" src="https://github.com/user-attachments/assets/455f7846-abc1-4382-b571-49cf2c3f7a16" />
+
+    
 ## Getting Started
 
-First, run the development server:
+1.  **Clone the repository:**
+    \`\`\`bash
+    git clone <your-repository-url>
+    cd nextautho
+    \`\`\`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2.  **Install dependencies:**
+    \`\`\`bash
+    npm install --legacy-peer-deps
+    \`\`\`
+    *(Use `--legacy-peer-deps` if you encounter peer dependency issues.)*
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3.  **Initialize shadcn/ui (if not already done):**
+    \`\`\`bash
+    npx shadcn@latest init
+    npx shadcn@latest add button card input label
+    \`\`\`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4.  **Environment Variables:**
+    Create a `.env.local` file in the root and add:
+    \`\`\`
+    NEXTAUTH_SECRET="YOUR_VERY_LONG_RANDOM_SECRET_STRING"
+    NEXTAUTH_URL="http://localhost:3000"
+    \`\`\`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+5.  **Run the development server:**
+    \`\`\`bash
+    npm run dev
+    \`\`\`
+    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open-source under the MIT License.
