@@ -53,9 +53,8 @@ export default function VerifyEmailPage() {
     console.log("Resending code to:", email)
     setCountdown(30)
     setCanResend(false)
-    setOtp(["", "", "", ""]) // Clear OTP inputs
-    inputRefs.current[0]?.focus() // Focus first input
-    // You would typically make an API call here to trigger resend
+    setOtp(["", "", "", ""]) 
+    inputRefs.current[0]?.focus() 
   }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
