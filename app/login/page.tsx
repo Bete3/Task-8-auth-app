@@ -31,7 +31,6 @@ export default function LoginPage() {
         <CardHeader className="space-y-4 text-center">
           <CardTitle className="text-4xl font-bold text-v0-text-light">Welcome Back,</CardTitle>
           <CardDescription className="text-v0-text-light/80">
-            {/* This description is not in the image, but useful for context. Can be removed if strictly matching. */}
           </CardDescription>
         </CardHeader>
         <CardContent>
