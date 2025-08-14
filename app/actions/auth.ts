@@ -1,14 +1,13 @@
 "use server"
 
 import { signIn } from "next-auth/react"
-// Removed 'redirect' import as we will handle it on the client side
 
 export async function signupAction(prevState: any, formData: FormData) {
   const name = formData.get("name") as string
   const email = formData.get("email") as string
   const password = formData.get("password") as string
   const confirmPassword = formData.get("confirmPassword") as string
-  const role = "user" // Default role
+  const role = "user" 
 
   if (password !== confirmPassword) {
     return { message: "Passwords do not match.", status: "error" }
@@ -38,7 +37,6 @@ export async function signupAction(prevState: any, formData: FormData) {
       return { message: "Signup failed: Invalid response from server.", status: "error" }
     }
 
-    // Return a success message and the URL to redirect to
     return {
       message: data.message || "Signup successful! Please verify your email.",
       status: "success",
@@ -60,7 +58,7 @@ export async function verifyEmailAction(prevState: any, formData: FormData) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, OTP: otp }), // Note: API expects 'OTP'
+      body: JSON.stringify({ email, OTP: otp }), 
     })
 
     if (!res.ok) {
@@ -105,7 +103,6 @@ export async function loginAction(prevState: any, formData: FormData) {
       return { message: "Invalid credentials. Please check your email and password.", status: "error" }
     }
 
-    // If successful, return a success message and the URL to redirect to
     return {
       message: "Login successful!",
       status: "success",
@@ -116,3 +113,4 @@ export async function loginAction(prevState: any, formData: FormData) {
     return { message: "An unexpected error occurred. Please try again later.", status: "error" }
   }
 }
+
