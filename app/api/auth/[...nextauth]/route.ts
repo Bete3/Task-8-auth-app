@@ -1,12 +1,10 @@
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 
-// For debugging: Check if NEXTAUTH_SECRET is set
 if (!process.env.NEXTAUTH_SECRET) {
   console.error("CRITICAL ERROR: NEXTAUTH_SECRET environment variable is not set!")
   console.error("Please ensure it's defined in your .env.local file or deployment environment.")
-  // In a production environment, you might want to throw an error here to prevent startup
-  // throw new Error("NEXTAUTH_SECRET is not defined");
+ 
 }
 
 const authOptions = {
@@ -40,22 +38,20 @@ const authOptions = {
           if (!res.ok) {
             const errorText = await res.text() // Read as text if not OK
             console.error(`Login API responded with status ${res.status}: ${errorText}`)
-            // Return null to indicate authentication failure
             return null
           }
 
           let data
           try {
-            data = await res.json() // Attempt to parse JSON
+            data = await res.json() 
           } catch (jsonError) {
-            const rawText = await res.text() // Get raw text if JSON parsing fails
+            const rawText = await res.text() 
             console.error("Failed to parse login response as JSON:", rawText, jsonError)
-            console.error("Raw response text:", rawText) // Log raw text for debugging
+            console.error("Raw response text:", rawText) 
             return null
           }
 
           if (data.accessToken) {
-            // Return user object with accessToken
             return {
               id: data.user.id,
               name: data.user.name,
@@ -92,7 +88,7 @@ const authOptions = {
     },
   },
   pages: {
-    signIn: "/login", // Specify the custom login page
+    signIn: "/login", 
   },
   session: {
     strategy: "jwt" as const,
